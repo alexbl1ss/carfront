@@ -4,6 +4,8 @@ import { DataGrid, GridToolbarContainer, GridToolbarExport, gridClasses } from '
 import Snackbar from '@mui/material/Snackbar';
 import AddCar from './AddCar.js';
 import EditCar from './EditCar';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function CustomToolbar() {
   return (
@@ -105,9 +107,10 @@ function Carlist() {
       sortable: false,
       filterable: false,
       renderCell: row => 
-                    <button 
-                      onClick={() => onDelClick(row.id)}>Delete
-                    </button>
+                    <IconButton 
+                      onClick={() => onDelClick(row.id)}>
+                        <DeleteIcon color="error" />
+                    </IconButton>
     }
    ];
     return(
