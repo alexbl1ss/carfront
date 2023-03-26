@@ -24,7 +24,13 @@ function Carlist() {
   }, []);
 
   const fetchCars = () => {
-    fetch(SERVER_URL + 'api/cars')
+    // Read the token from the session storage
+    // and include it to Authorization header 
+    const token = sessionStorage.getItem("jwt"); 
+
+    fetch(SERVER_URL + 'api/cars', {
+      headers: { 'Authorization' : token }
+    })
     .then(response => response.json())
     .then(data => setCars(data._embedded.cars))
     .catch(err => console.error(err));    
@@ -32,46 +38,57 @@ function Carlist() {
   
   const onDelClick = (url) => {
     if (window.confirm("Are you sure to delete?")) {
-      fetch(url,  {method:  'DELETE'})
-      .then(response => {
+      const token = sessionStorage.getItem("jwt"); 
+
+      fetch(url, {
+        method:  'DELETE', 
+        headers: { 'Authorization' : token }
+      })
+      .then(response => { 
         if (response.ok) {
           fetchCars();
           setOpen(true);
         }
         else {
-          alert('Something went wrong!');
-        }
+          alert('Something went wrsong!');
+        }  
       })
       .catch(err => console.error(err))
     }
   }
 
   // Add a new car 
-    const addCar = (car) => {
-      fetch(SERVER_URL  +  'api/cars',
-        { method: 'POST', headers: {
-          'Content-Type':'application/json',
-        },
-        body: JSON.stringify(car)
-      })
-      .then(response => {
-        if (response.ok) {
-          fetchCars();
-        }
-        else {
-          alert('Something went wrong!');
-        }
-      })
-      .catch(err => console.error(err))
-    }
+  const addCar = (car) => {
+    const token = sessionStorage.getItem("jwt"); 
+
+    fetch(SERVER_URL  +  'api/cars',
+      { method: 'POST', headers: {
+        'Content-Type':'application/json',
+        'Authorization' : token
+      },
+      body: JSON.stringify(car)
+    })
+    .then(response => {
+      if (response.ok) {
+        fetchCars();
+      }
+      else {
+        alert('Something went wrong!');
+      }
+    })
+    .catch(err => console.error(err))
+  }
 
   // Update existing car
   const updateCar = (car, link) => {
+    const token = sessionStorage.getItem("jwt"); 
+
     fetch(link,
       { 
         method: 'PUT', 
         headers: {
-        'Content-Type':  'application/json',
+        'Content-Type':'application/json',
+        'Authorization' : token
       },
       body: JSON.stringify(car)
     })
