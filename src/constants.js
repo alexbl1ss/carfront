@@ -1,1 +1,1 @@
-export const SERVER_URL='https://bookchapter5.herokuapp.com/';
+export const SERVER_URL='http://localhost:8080/';
