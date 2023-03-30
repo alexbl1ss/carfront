@@ -70,7 +70,7 @@ function EditCar(props) {
                   <TextField label="Price" name="price" 
                     variant="standard" value={car.price} 
                     onChange={handleChange}/> 
-                  <TextField label="Reg" name="reg" 
+                  <TextField label="Reg" name="registerNumber" 
                     variant="standard" value={car.registerNumber} 
                     onChange={handleChange}/> 
                 </Stack>

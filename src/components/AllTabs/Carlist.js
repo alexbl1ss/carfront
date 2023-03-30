@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { SERVER_URL } from '../constants.js'
+import { SERVER_URL } from '../../constants.js'
 import { DataGrid, GridToolbarContainer, GridToolbarExport, gridClasses } from '@mui/x-data-grid';
 import Snackbar from '@mui/material/Snackbar';
-import AddCar from './AddCar.js';
-import EditCar from './EditCar';
+import AddCar from '../AddCar.js';
+import EditCar from '../EditCar';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import OwnerList from './Ownerlist.js';
+import OwnerList from '../TabComponent/Ownerlist.js';
 
 function CustomToolbar() {
   return (
@@ -111,13 +111,13 @@ function Carlist() {
   }
 
    const columns = [
-    {field: 'brand', headerName: 'Brand', width: 200},
-    {field: 'model', headerName: 'Model', width: 200},
-    {field: 'color', headerName: 'Color', width: 200},
-    {field: 'year', headerName: 'Year', width: 150},
-    {field: 'price', headerName: 'Price', width: 150},
-    {field: 'registerNumber', headerName: 'Reg', width: 150},
-    {field: '_links.owner.href', headerName: 'Owner',width: 150},
+    {field: 'brand', headerName: 'Brand', width: 100},
+    {field: 'model', headerName: 'Model', width: 100},
+    {field: 'color', headerName: 'Color', width: 100},
+    {field: 'year', headerName: 'Year', width: 100},
+    {field: 'price', headerName: 'Price', width: 100},
+    {field: 'registerNumber', headerName: 'registerNumber', width: 150},
+    {field: '_links.owner.href', headerName: 'Owner',width: 100},
     {
       field: '_links.car.href', 
       headerName: '', 

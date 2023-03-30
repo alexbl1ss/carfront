@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SERVER_URL } from '../constants.js'
+import { SERVER_URL } from '../../constants.js'
 import { DataGrid, GridToolbarContainer, GridToolbarExport, gridClasses } from '@mui/x-data-grid';
 
 function CustomToolbar() {
