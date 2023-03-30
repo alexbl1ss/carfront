@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import FirstTab from "../AllTabs/FirstTab";
 //import SecondTab from "../AllTabs/SecondTab";
 import Carlist from "../AllTabs/Carlist";
-import OwnerList from "./Ownerlist";
+import OwnerList from "../AllTabs/Ownerlist";
 
 const Tabs = () => {
     const [activeTab, setActiveTab] = useState("cars");

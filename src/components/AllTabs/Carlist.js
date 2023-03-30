@@ -6,7 +6,6 @@ import AddCar from '../AddCar.js';
 import EditCar from '../EditCar';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import OwnerList from '../TabComponent/Ownerlist.js';
 
 function CustomToolbar() {
   return (
@@ -37,12 +36,6 @@ function Carlist() {
     .catch(err => console.error(err));    
   }
 
-  const ownerClick = () => {
-    <div>do nothing</div>
-    return <OwnerList />;
-
-  }
-  
   const onDelClick = (url) => {
     if (window.confirm("Are you sure to delete?")) {
       const token = sessionStorage.getItem("jwt"); 
@@ -158,9 +151,6 @@ function Carlist() {
         </div>
         <button type="button" onClick={fetchCars}>
             refresh
-        </button>
-         <button type="button" onClick={ownerClick}>
-            owners
         </button>
     </React.Fragment>
 );

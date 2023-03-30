@@ -18,6 +18,7 @@ function OwnerList() {
   }, []);
 
   const fetchOwners = () => {
+    //console.log("hello fetch owners");
     // Read the token from the session storage
     // and include it to Authorization header 
     const token = sessionStorage.getItem("jwt"); 
@@ -31,7 +32,7 @@ function OwnerList() {
   }
 
   function getFullName(params) {
-    return `${owners.firstname || ''} ${owners.lastname || ''}`;
+    return `${params.row.firstname || ''} ${params.row.lastname || ''}`;
   }
   
   const columns = [
@@ -54,6 +55,9 @@ function OwnerList() {
         getRowId={row => row._links.self.href}
         components={{ Toolbar: CustomToolbar }}/>
      </div>
+     <button type="button" onClick={fetchOwners}>
+            refresh
+        </button>
     </React.Fragment>
 );
 }

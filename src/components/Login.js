@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
-// eslint-disable-next-line
-import Carlist from './AllTabs/Carlist';
-//import OwnerList from './Ownerlist';
 import Snackbar from '@mui/material/Snackbar';
 import Tabs from "./TabComponent/Tabs"
 
@@ -42,8 +39,6 @@ function Login() {
       }
         
       if (isAuthenticated) {
-//        return <OwnerList />;
-//          return <Carlist />;
           return <Tabs />;
 
       }
