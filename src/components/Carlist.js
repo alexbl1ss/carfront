@@ -38,7 +38,7 @@ function Carlist() {
   }
 
   const ownerClick = () => {
-    <div>fuck your mother</div>
+    <div>do nothing</div>
     return <OwnerList />;
 
   }
