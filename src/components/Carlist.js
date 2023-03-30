@@ -156,7 +156,10 @@ function Carlist() {
           message="Car deleted"
         />
         </div>
-        <button type="button" onClick={ownerClick}>
+        <button type="button" onClick={fetchCars}>
+            refresh
+        </button>
+         <button type="button" onClick={ownerClick}>
             owners
         </button>
     </React.Fragment>

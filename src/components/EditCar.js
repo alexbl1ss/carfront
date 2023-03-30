@@ -14,7 +14,7 @@ function EditCar(props) {
   const [open, setOpen] = useState(false);
   const [car, setCar] = useState({
     brand: '', model: '', color: '',  
-    year: '', fuel:'', price:  ''
+    year: '', fuel:'', price:  '', registerNumber:  ''
   });
 
     // Open the modal form and update the car state
@@ -25,7 +25,8 @@ function EditCar(props) {
           color: props.data.row.color,
           year: props.data.row.year,
           fuel: props.data.row.fuel,
-          price: props.data.row.price 
+          price: props.data.row.price, 
+          registerNumber: props.data.row.registerNumber 
         })      
         setOpen(true);
       }
@@ -68,6 +69,9 @@ function EditCar(props) {
                     onChange={handleChange}/> 
                   <TextField label="Price" name="price" 
                     variant="standard" value={car.price} 
+                    onChange={handleChange}/> 
+                  <TextField label="Reg" name="reg" 
+                    variant="standard" value={car.registerNumber} 
                     onChange={handleChange}/> 
                 </Stack>
               </DialogContent>    
