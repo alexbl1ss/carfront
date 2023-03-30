@@ -6,6 +6,7 @@ import AddCar from './AddCar.js';
 import EditCar from './EditCar';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import OwnerList from './Ownerlist.js';
 
 function CustomToolbar() {
   return (
@@ -34,6 +35,12 @@ function Carlist() {
     .then(response => response.json())
     .then(data => setCars(data._embedded.cars))
     .catch(err => console.error(err));    
+  }
+
+  const ownerClick = () => {
+    <div>fuck your mother</div>
+    return <OwnerList />;
+
   }
   
   const onDelClick = (url) => {
@@ -109,6 +116,8 @@ function Carlist() {
     {field: 'color', headerName: 'Color', width: 200},
     {field: 'year', headerName: 'Year', width: 150},
     {field: 'price', headerName: 'Price', width: 150},
+    {field: 'registerNumber', headerName: 'Reg', width: 150},
+    {field: '_links.owner.href', headerName: 'Owner',width: 150},
     {
       field: '_links.car.href', 
       headerName: '', 
@@ -132,21 +141,24 @@ function Carlist() {
    ];
     return(
       <React.Fragment>
-      <AddCar addCar={addCar} />
-    <div style={{ height: 500, width: '100%' }}>
-      <DataGrid
-        rows={cars}
-        columns={columns}
-        disableSelectionOnClick={true}
-        getRowId={row => row._links.self.href}
-        components={{ Toolbar: CustomToolbar }}/>
+        <AddCar addCar={addCar} />
+        <div style={{ height: 500, width: '100%' }}>
+        <DataGrid
+          rows={cars}
+          columns={columns}
+          disableSelectionOnClick={true}
+          getRowId={row => row._links.self.href}
+          components={{ Toolbar: CustomToolbar }}/>
         <Snackbar
           open={open}
           autoHideDuration={2000}
           onClose={() => setOpen(false)}
           message="Car deleted"
         />
-    </div>
+        </div>
+        <button type="button" onClick={ownerClick}>
+            owners
+        </button>
     </React.Fragment>
 );
 }
